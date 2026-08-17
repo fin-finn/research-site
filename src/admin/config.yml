@@ -7,7 +7,9 @@
 
 backend:
   name: github
-  repo: CHANGE-ME-your-github-username/research-site   # CHANGE ME: user/repo
+  # Pre-filled from the GitHub link on your About page. Change "research-site"
+  # if you name the repository something else.
+  repo: fin-finn/research-site
   branch: main
   # The Cloudflare Worker that handles signing in. No trailing slash.
   base_url: https://CHANGE-ME.workers.dev               # CHANGE ME: worker URL

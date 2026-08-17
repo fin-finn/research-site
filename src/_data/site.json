@@ -1,6 +1,7 @@
 {
   "title": "Finn Watson",
   "tagline": "Research and writing on credit and financial markets",
+  "description": "Independent research and writing on credit and financial markets by Finn Watson — macroeconomics, market commentary, and credit analysis.",
   "nav": [
     { "label": "Home", "url": "/" },
     { "label": "About", "url": "/about/" },

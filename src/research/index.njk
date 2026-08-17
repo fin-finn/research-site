@@ -8,8 +8,10 @@ override:tags: []
 
 <p>Writing and analysis. Newest first.</p>
 
+{%- set notes = collections.research | published | reverse -%}
+{%- if notes.length > 0 -%}
 <ul class="post-list">
-  {%- for post in collections.research | published | reverse -%}
+  {%- for post in notes -%}
   <li>
     <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
     <p class="post-meta">{{ post.date | readableDate }}</p>
@@ -17,3 +19,7 @@ override:tags: []
   </li>
   {%- endfor -%}
 </ul>
+{%- else -%}
+<p class="empty-note">The first notes are being written and will appear here
+shortly.</p>
+{%- endif -%}

@@ -160,6 +160,14 @@ hr {
   font-style: italic;
 }
 
+/* Stands in for a list that has nothing in it yet (Research, Data). Set
+   quietly, as a note to the reader rather than an error message. */
+.empty-note {
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
 /* ---------------------------------------------------------------
    Home page (title-page treatment)
    --------------------------------------------------------------- */
@@ -334,8 +342,9 @@ hr {
   color: var(--ink);
 }
 
-/* Small-caps opening: the first few words of the opening paragraph.
-   Wrap them in <span class="opener">…</span> in the post (see sample). */
+/* Small-caps opening: the first few words of the opening paragraph. Applied
+   automatically to the first three words by the "opener" transform in
+   .eleventy.js; writing the span by hand in a post overrides that. */
 .opener {
   font-variant-caps: small-caps;
   font-feature-settings: "smcp" 1, "onum" 1;

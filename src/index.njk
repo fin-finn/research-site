@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Home
+# No title here on purpose: the browser tab should read "Finn Watson", not
+# "Home — Finn Watson". The nav highlights by URL, not by this.
 ---
 <div class="frontpage">
   <div class="frontispiece-block">
@@ -18,10 +19,12 @@ title: Home
   </div>
 </div>
 
+{%- set latest = collections.research | published | reverse -%}
+{%- if latest.length > 0 -%}
 <section class="front-latest">
   <h2 class="section-label">Latest</h2>
   <ul class="post-list">
-    {%- for post in collections.research | published | reverse -%}
+    {%- for post in latest -%}
       {%- if loop.index <= 4 -%}
       <li>
         <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
@@ -32,3 +35,4 @@ title: Home
     {%- endfor -%}
   </ul>
 </section>
+{%- endif -%}

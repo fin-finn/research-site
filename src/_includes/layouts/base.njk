@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
+    {#- A note's summary describes it better than the site-wide line would. -#}
+    {%- set metaDescription = description or summary or site.description -%}
+    {% if metaDescription %}<meta name="description" content="{{ metaDescription }}" />{% endif %}
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
