@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+---
+{%- set headings = content | toc -%}
+<article class="post">
+  <header class="post-header">
+    <h1>{{ title }}</h1>
+    <p class="entry-meta">{{ date | readableDate }}</p>
+  </header>
+
+  {%- if headings.length > 0 -%}
+  <nav class="toc" aria-label="Table of contents">
+    <h2 class="toc-title">Contents</h2>
+    <ol class="toc-list">
+      {%- for h in headings -%}
+      <li><a href="#{{ h.id }}"><span class="toc-num">&sect; {{ loop.index }}</span> {{ h.text }}</a></li>
+      {%- endfor -%}
+    </ol>
+  </nav>
+  {%- endif -%}
+
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+
+  <img class="ornament ornament-bottom" src="/assets/img/ornament-band.png" alt="" aria-hidden="true">
+</article>
+<script src="/assets/js/sidenotes.js" defer></script>

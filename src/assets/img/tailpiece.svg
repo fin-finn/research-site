@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none">
+  <g stroke="#1a1a1a" stroke-width="1.1" stroke-linecap="round" fill="#1a1a1a">
+    <!-- central diamond -->
+    <path d="M60 8 L64 18 L60 28 L56 18 Z" fill="#1a1a1a" stroke="none"/>
+    <!-- inner leaves flanking centre -->
+    <path d="M60 18 C52 12, 44 14, 40 18 C44 22, 52 24, 60 18 Z" fill="#1a1a1a" stroke="none"/>
+    <path d="M60 18 C68 12, 76 14, 80 18 C76 22, 68 24, 60 18 Z" fill="#1a1a1a" stroke="none"/>
+    <!-- tapering stems -->
+    <path d="M40 18 C30 18, 22 18, 12 18" fill="none"/>
+    <path d="M80 18 C90 18, 98 18, 108 18" fill="none"/>
+    <!-- small terminal leaves -->
+    <path d="M12 18 C9 15, 6 15, 4 18 C6 21, 9 21, 12 18 Z" fill="#1a1a1a" stroke="none"/>
+    <path d="M108 18 C111 15, 114 15, 116 18 C114 21, 111 21, 108 18 Z" fill="#1a1a1a" stroke="none"/>
+    <!-- tiny buds above and below centre -->
+    <circle cx="60" cy="5" r="1.6" stroke="none"/>
+    <circle cx="60" cy="31" r="1.6" stroke="none"/>
+  </g>
+</svg>

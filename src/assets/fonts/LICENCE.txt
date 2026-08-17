@@ -1,0 +1,7 @@
+Palatine Parliamentary by Elijah Granet
+https://github.com/ezgranet/palatine-parliamentary
+Released under the LaTeX Project Public License (LPPL) v1.3:
+http://www.ctan.org/license/lppl1.3
+
+The .woff2 files in this folder are web-format conversions of the original
+.otf files, also included here. Attribution retained per the LPPL.

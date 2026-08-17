@@ -1,0 +1,16 @@
+{
+  "name": "research-site",
+  "version": "1.0.0",
+  "description": "A research blog with About, Research, and Data sections.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-footnote": "^4.0.0"
+  }
+}

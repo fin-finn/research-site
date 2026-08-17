@@ -1,0 +1,505 @@
+/* ---------------------------------------------------------------
+   Palatine Parliamentary — self-hosted web fonts
+   --------------------------------------------------------------- */
+@font-face {
+  font-family: "Palatine Parliamentary";
+  src: url("/assets/fonts/PalatineP-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Palatine Parliamentary";
+  src: url("/assets/fonts/PalatineP-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Palatine Parliamentary";
+  src: url("/assets/fonts/PalatineP-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Palatine Parliamentary";
+  src: url("/assets/fonts/PalatineP-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------
+   Design tokens
+   --------------------------------------------------------------- */
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --paper: #ececec;          /* page background */
+  --rule: #cfcabd;           /* hairline rules, cooled to suit the grey */
+  --accent: #6b1f2a;        /* a deep oxblood — restrained, document-like */
+  --link: #6b1f2a;
+  --note: #2f4a6b;           /* muted blue for side-notes & TOC, per reference */
+  --measure: 38rem;          /* reading column width */
+  --margin-col: 15rem;       /* width of the side-note margin on wide screens */
+  --serif: "Palatine Parliamentary", Palatino, "Book Antiqua", Georgia, serif;
+}
+
+/* ---------------------------------------------------------------
+   Base
+   --------------------------------------------------------------- */
+* { box-sizing: border-box; }
+
+html {
+  font-size: 19px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--ink);
+  background: var(--paper);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  /* Kerning + standard/common ligatures everywhere */
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1;
+}
+
+/* ---------------------------------------------------------------
+   Layout shell
+   --------------------------------------------------------------- */
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------------------------------------------------------------
+   Masthead / nav
+   --------------------------------------------------------------- */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding: 2rem 0 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.masthead .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+}
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1rem;
+}
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------- */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+h1 { font-size: 2.1rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.6rem; }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 0.4rem; }
+
+p { margin: 0 0 1.1rem; }
+
+a { color: var(--link); }
+
+em, i { font-style: italic; }
+
+blockquote {
+  margin: 1.4rem 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+/* ---------------------------------------------------------------
+   Post list (Research index)
+   --------------------------------------------------------------- */
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-list li {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.post-list h2 { margin: 0 0 0.2rem; font-size: 1.3rem; }
+.post-list h2 a { color: var(--ink); text-decoration: none; }
+.post-list h2 a:hover { color: var(--accent); }
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------
+   Home page (title-page treatment)
+   --------------------------------------------------------------- */
+.frontpage {
+  text-align: center;
+  margin: 1rem 0 2.5rem;
+}
+.frontispiece-block {
+  margin: 0 0 1.5rem;
+}
+.frontispiece {
+  display: inline-block;
+  width: 14rem;
+  max-width: 70%;
+  height: auto;
+  opacity: 0.92;
+}
+.front-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.4rem;
+  line-height: 1.1;
+}
+.front-standfirst {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;      /* gap between subtitle and intro paragraph */
+  text-indent: 0;
+}
+.front-intro {
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.front-intro p {
+  text-indent: 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+  hyphenate-limit-chars: 6 3 2;
+}
+
+/* A quiet centred section label, used for "Latest" */
+.section-label {
+  text-align: center;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+.post-summary {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Even spacing for the Latest section on the home page (scoped so the
+   Research listing page keeps its own spacing). */
+.front-latest .section-label {
+  margin-bottom: 1rem;
+}
+.front-latest .post-list li:first-child {
+  padding-top: 1rem;
+}
+
+/* article meta line under a post title */
+.entry-meta {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.disclaimer {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+/* ---------------------------------------------------------------
+   Standalone prose pages (e.g. About)
+   --------------------------------------------------------------- */
+/* Justify the running paragraphs. Hyphenation keeps the spacing even
+   on the narrow column. The :not() rules skip short one-link paragraphs
+   (like the Contact section) where justification does nothing useful. */
+.page-prose p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+  hyphenate-limit-chars: 6 3 2;
+}
+/* Don't justify paragraphs that are essentially a single link */
+.page-prose p:has(> a:only-child) {
+  text-align: left;
+  hyphens: manual;
+}
+
+/* ---------------------------------------------------------------
+   Data downloads table
+   --------------------------------------------------------------- */
+.data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.data-table th, .data-table td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.data-table th { font-weight: 700; }
+
+/* ---------------------------------------------------------------
+   Plotly figures
+   --------------------------------------------------------------- */
+.figure {
+  margin: 2rem 0;
+  /* let charts run a little wider than the text column */
+  width: 100%;
+}
+.figure .caption {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+/* ---------------------------------------------------------------
+   Print refinements (article body)
+   --------------------------------------------------------------- */
+/* Old-style (text) figures in running prose: numerals gain ascenders
+   and descenders so they sit like lowercase letters. Applied to body
+   copy but NOT to code, the TOC numbers, or data tables. */
+.post-body p,
+.post-body li,
+.post-body blockquote {
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "onum" 1;
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* First-line indents for body paragraphs, book-style. The first paragraph
+   of the article (and any following a heading) is not indented. */
+.post-body p {
+  margin: 0;
+  text-indent: 1.4em;
+}
+/* No indent on the opening paragraph and the first paragraph after any
+   heading, figure, or blockquote — standard typesetting practice. */
+.post-body > p:first-of-type,
+.post-body h2 + p,
+.post-body h3 + p,
+.post-body .figure + p,
+.post-body blockquote + p {
+  text-indent: 0;
+}
+/* Keep a little air around headings now that paragraphs aren't spaced */
+.post-body h2 { margin-top: 2rem; }
+.post-body h3 { margin-top: 1.6rem; }
+/* Restore spacing (not indent) for list items and figure captions */
+.post-body ul,
+.post-body ol { margin: 1.1rem 0; }
+.post-body .figure { margin: 2rem 0; }
+
+/* Drop cap: large initial letter on the opening paragraph */
+.post-body > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.05em 0.08em 0 0;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Small-caps opening: the first few words of the opening paragraph.
+   Wrap them in <span class="opener">…</span> in the post (see sample). */
+.opener {
+  font-variant-caps: small-caps;
+  font-feature-settings: "smcp" 1, "onum" 1;
+  letter-spacing: 0.03em;
+}
+
+/* Tailpiece: a small centred ornament at the very end of an article */
+.tailpiece {
+  display: block;
+  width: 5.5rem;
+  height: auto;
+  margin: 2.5rem auto 0;
+  opacity: 0.8;
+}
+@media (min-width: 60rem) {
+  /* keep it centred on the reading column, not the wide container */
+  .tailpiece { margin-left: calc(var(--measure) / 2 - 2.75rem); }
+}
+
+
+.ornament {
+  display: block;
+  width: 100%;
+  max-width: var(--measure);   /* match the text column width */
+  height: auto;
+  margin: 0 auto;
+  opacity: 0.85;
+  /* the source is black line-art; this keeps it crisp on the grey */
+}
+.ornament-top {
+  margin-bottom: 2.5rem;
+}
+.ornament-bottom {
+  margin-top: 3rem;
+}
+
+/* On wide screens .ornament-bottom is a child of the wide .post container,
+   which is wider than the reading column. Constrain it to --measure and
+   left-align so it lines up exactly under the text and matches the top one. */
+@media (min-width: 60rem) {
+  .ornament-top,
+  .ornament-bottom {
+    max-width: var(--measure);
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Table of contents
+   --------------------------------------------------------------- */
+.toc {
+  margin: 2.5rem 0 3rem;
+  padding: 0;
+}
+.toc-title {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+.toc-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 30rem;
+}
+.toc-list li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-list a {
+  color: var(--note);
+  text-decoration: none;
+  display: flex;
+  gap: 0.9rem;
+}
+.toc-list a:hover { color: var(--accent); }
+.toc-num {
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------
+   Post layout with margin footnotes (wide screens)
+   --------------------------------------------------------------- */
+/* On post pages, let the article span a wider grid: a reading column
+   plus a right-hand margin for side-notes. The header and TOC stay
+   centred over the reading column. */
+@media (min-width: 60rem) {
+  /* Break the post out of the narrow .wrap so a right margin exists.
+     The parent .wrap is capped at --measure; we widen just the post. */
+  .post {
+    position: relative;
+    width: calc(var(--measure) + var(--margin-col) + 2.5rem);
+    max-width: 92vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Header, TOC and body all sit in the left reading column */
+  .post-header,
+  .toc,
+  .post-body { max-width: var(--measure); }
+
+  /* Footnotes float into the right margin, aligned to the top of the body */
+  .post-body { position: static; }
+  .post .footnotes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--margin-col);
+    margin: 0;
+  }
+}
+
+/* Footnote block styling (applies at all widths) */
+.footnotes {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--note);
+}
+.footnotes-sep { display: none; }            /* hide the default divider */
+.footnotes-list { padding-left: 1.2rem; margin: 0; }
+.footnote-item { margin-bottom: 0.9rem; }
+.footnote-item p { margin: 0; }
+
+/* The little superscript markers in the body text */
+.footnote-ref a {
+  text-decoration: none;
+  color: var(--note);
+  font-size: 0.7em;
+  vertical-align: super;
+  padding: 0 0.1em;
+}
+.footnote-backref { display: none; }        /* hide the return arrows */
+
+/* On narrow screens, restore a normal footnotes block at the foot */
+@media (max-width: 60rem) {
+  .footnotes {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  padding: 1.5rem 0 3rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------- */
+@media (max-width: 480px) {
+  html { font-size: 18px; }
+  .masthead .wrap { flex-direction: row; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}

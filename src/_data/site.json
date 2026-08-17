@@ -1,0 +1,10 @@
+{
+  "title": "Finn Watson",
+  "tagline": "Research and writing on credit and financial markets",
+  "nav": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Research", "url": "/research/" },
+    { "label": "Data", "url": "/data/" }
+  ]
+}

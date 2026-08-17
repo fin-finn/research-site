@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Research
+permalink: /research/
+override:tags: []
+---
+<h1>Research</h1>
+
+<p>Writing and analysis. Newest first.</p>
+
+<ul class="post-list">
+  {%- for post in collections.research | reverse -%}
+  <li>
+    <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    <p class="post-meta">{{ post.date | readableDate }}</p>
+    {%- if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif -%}
+  </li>
+  {%- endfor -%}
+</ul>
