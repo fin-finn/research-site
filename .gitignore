@@ -1,3 +1,11 @@
 node_modules/
 _site/
 .DS_Store
+.claude/
+
+# Cloudflare Worker: local build state, and the file wrangler uses for local
+# secrets. .dev.vars would contain the GitHub client secret — it must never be
+# committed.
+.wrangler/
+.dev.vars
+.env

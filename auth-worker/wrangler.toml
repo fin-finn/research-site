@@ -1,0 +1,16 @@
+name = "research-site-auth"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Only these sites may receive a sign-in token. Comma-separated, no trailing
+# slash. Replace the first with your real domain once it is live; keep the
+# localhost entry so the editor also works while you preview locally.
+[vars]
+ALLOWED_ORIGINS = "https://CHANGE-ME.com,http://localhost:8080"
+
+# GITHUB_CLIENT_ID is set the same way (it is not secret):
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#
+# GITHUB_CLIENT_SECRET must ONLY ever be set as a secret — never put it in
+# this file, because this file is committed to the repository:
+#   npx wrangler secret put GITHUB_CLIENT_SECRET

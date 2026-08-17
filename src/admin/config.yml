@@ -1,0 +1,88 @@
+# Configuration for the article editor at /admin/
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# BEFORE THIS WORKS you must fill in the two placeholders marked CHANGE ME.
+# See PUBLISHING.md in the project root for the full walkthrough.
+# ─────────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: CHANGE-ME-your-github-username/research-site   # CHANGE ME: user/repo
+  branch: main
+  # The Cloudflare Worker that handles signing in. No trailing slash.
+  base_url: https://CHANGE-ME.workers.dev               # CHANGE ME: worker URL
+
+# On localhost the editor edits the files on your own disk directly (Chrome or
+# Edge only). This means you can use the editor before any of the GitHub or
+# Cloudflare setup is finished.
+local_backend: true
+
+# Uploaded images are committed to the repo alongside the posts.
+media_folder: src/assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  - name: research
+    label: Research notes
+    label_singular: research note
+    folder: src/research
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"           # filename and URL come from the title
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    # The built-in preview cannot reproduce the site's typography, so it is
+    # switched off rather than shown misleadingly. Preview by unticking Draft
+    # on a local build, or view the site itself after publishing.
+    editor:
+      preview: false
+    fields:
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Date
+        name: date
+        widget: datetime
+        date_format: "DD MMMM YYYY"   # how it looks while editing
+        time_format: false            # a date, not a timestamp
+        format: "YYYY-MM-DD"          # how it is written into the file
+
+      - label: Summary
+        name: summary
+        widget: text
+        required: false
+        hint: One line, shown on the home page and the Research listing.
+
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        hint: >-
+          New notes start as drafts. While this is ticked the note is saved but
+          no page is built for it — nobody can reach it. Untick to publish.
+
+      - label: Body
+        name: body
+        widget: markdown
+        hint: >-
+          Use "Heading 2" for sections — they become the Contents list
+          automatically. The first few words are set in small capitals and the
+          first letter becomes a drop cap, both automatically.
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: Title, tagline and menu
+        file: src/_data/site.json
+        fields:
+          - { label: Site title, name: title, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - label: Menu
+            name: nav
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Address, name: url, widget: string }

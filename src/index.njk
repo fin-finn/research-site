@@ -21,7 +21,7 @@ title: Home
 <section class="front-latest">
   <h2 class="section-label">Latest</h2>
   <ul class="post-list">
-    {%- for post in collections.research | reverse -%}
+    {%- for post in collections.research | published | reverse -%}
       {%- if loop.index <= 4 -%}
       <li>
         <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
