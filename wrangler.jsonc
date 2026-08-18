@@ -1,0 +1,33 @@
+{
+  // How Cloudflare serves this site.
+  //
+  // This file exists so that nothing about the deployment is guessed. Without
+  // it, wrangler runs its first-time setup wizard on the build machine, invents
+  // these settings, and builds the site a second time — see STATUS.md.
+  //
+  // NOTE: this is the *site* worker. The sign-in worker for the editor is a
+  // separate one, configured in auth-worker/wrangler.toml. Deploy that one by
+  // running wrangler from inside auth-worker/, never from here.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "research-site",
+  "compatibility_date": "2026-08-15",
+
+  // The site is static: no server code, just the built files. This is the
+  // whole point of the design — there is nothing writeable on the domain.
+  "assets": {
+    "directory": "_site"
+  },
+
+  // Keep the research-site.<subdomain>.workers.dev address working. Once your
+  // own domain is attached you may want to set this to false, so the site is
+  // not reachable — or indexed by search engines — at two addresses.
+  "workers_dev": true,
+
+  // Per-deployment preview URLs. Off: this is a personal site with one author,
+  // and they would otherwise put copies of the site at public addresses.
+  "preview_urls": false,
+
+  "observability": {
+    "enabled": true
+  }
+}
