@@ -3,9 +3,16 @@ permalink: /robots.txt
 eleventyExcludeFromCollections: true
 layout: null
 ---
-# What search engines may read. Everything, except the editor, which is a
-# private tool rather than part of the site's writing.
+# What automated visitors may do with this site.
+#
+# Search engines are welcome. AI systems are not: the writing here should not
+# be used to train models, or lifted into generated answers. Content-Signal is
+# the standard way of stating that, and counts as an express reservation of
+# rights under Article 4 of the EU copyright directive (2019/790).
+#
+# It is a request, not a lock. Well-behaved crawlers honour it; others do not.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=no, ai-train=no
 Allow: /
 Disallow: /admin/
