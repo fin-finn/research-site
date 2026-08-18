@@ -8,6 +8,9 @@ module.exports = function (eleventyConfig) {
   // Copy assets (fonts, css, downloadable data files) straight through to the build
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Browsers ask for /favicon.ico at the root whether or not it is linked
+  eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
+
   // The content manager is a static app — copy it verbatim, never render it
   // as a template (its HTML is not Nunjucks).
   eleventyConfig.addPassthroughCopy("src/admin");
