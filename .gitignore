@@ -9,3 +9,14 @@ _site/
 .wrangler/
 .dev.vars
 .env
+
+# The working notes: how to build, edit, publish and think about this site.
+# They stay on the author's computer. The repository is public, and these
+# describe how to operate the site rather than what it is.
+EDITOR.md
+GITHUB.md
+GUIDE.md
+PROJECT-CONTEXT.md
+PUBLISHING.md
+STATUS.md
+charts/README.md
