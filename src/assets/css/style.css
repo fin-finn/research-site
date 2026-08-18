@@ -254,8 +254,9 @@ hr {
    Standalone prose pages (e.g. About)
    --------------------------------------------------------------- */
 /* Justify the running paragraphs. Hyphenation keeps the spacing even
-   on the narrow column. The :not() rules skip short one-link paragraphs
-   (like the Contact section) where justification does nothing useful. */
+   on the narrow column. Short paragraphs that are nothing but a link
+   (the Contact section) opt out with class="link-only" — justifying
+   those does nothing useful. */
 .page-prose p {
   text-align: justify;
   hyphens: auto;
@@ -263,8 +264,11 @@ hr {
   text-wrap: pretty;
   hyphenate-limit-chars: 6 3 2;
 }
-/* Don't justify paragraphs that are essentially a single link */
-.page-prose p:has(> a:only-child) {
+/* Don't justify a paragraph that is nothing but a link. This is marked by
+   hand: it cannot be detected from the markup, because :only-child counts
+   only element children, so a full paragraph of prose containing one link
+   looks identical to a bare link and would lose its justification. */
+.page-prose p.link-only {
   text-align: left;
   hyphens: manual;
 }
